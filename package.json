@@ -1,0 +1,33 @@
+{
+  "name": "magisterplanner",
+  "version": "1.0.0",
+  "description": "A planner with Magister and Google Drive intergration, which makes doing schoolwork a lot smoother.",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^5.0.2",
+    "magister.js": "^2.0.0-alpha.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipeautcrafter/MagisterPlanner.git"
+  },
+  "keywords": [
+    "Magister",
+    "Planner",
+    "Electron",
+    "Drive",
+    "Google",
+    "Homework",
+    "School"
+  ],
+  "author": "wipeaut",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wipeautcrafter/MagisterPlanner/issues"
+  },
+  "homepage": "https://github.com/wipeautcrafter/MagisterPlanner#readme"
+}
