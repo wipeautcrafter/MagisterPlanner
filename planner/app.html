@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MagisterPlanner</title>
+  </head>
+  <body>
+    <div class="row">
+      <div id="main" class="col">
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="btn"><i class="fas fa-times-circle"></i></button>
+          <a class="navbar-brand mx-auto" href="#"><i class="far fa-calendar-check"></i> MagisterPlanner <span class="badge badge-pill badge-danger">1</span></a>
+          <button class="btn expand-btn" data-toggle="collapse" data-target=".main-collapse"><i class="fas fa-lg fa-angle-up"></i></button>
+        </nav>
+        <div id="planner" class="main-collapse collapse">
+          Planner
+        </div>
+        <div id="schedule" class="main-collapse collapse show">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Subject</th>
+                <th>Teacher</th>
+                <th>Flags</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>na</td>
+                <td>BDV</td>
+                <td><span class="badge badge-secondary">HW</span></td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>eng</td>
+                <td>LNN</td>
+                <td><span class="badge badge-success">HW</span></td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>ne</td>
+                <td>PRH</td>
+                <td><span class="badge badge-warning">PW</span> <span class="badge badge-success">HW</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="editor" class="col d-none d-lg-block">
+        Editor
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,15 @@
+body, html {
+  overflow: hidden;
+}
+
+.expand-btn i {
+  transition: transform 0.3s ease-out;
+  -webkit-filter: blur(0);
+}
+.expand-btn.expand i {
+  transform: rotate(180deg);
+}
+
+.badge {
+  padding: 0.25rem 0.7rem;
+}
