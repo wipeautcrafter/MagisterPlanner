@@ -1,0 +1,29 @@
+@import url("bootstrap.min.css");
+
+body, html {
+  overflow: hidden;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  -webkit-app-region: drag;
+}
+.navbar * {
+  -webkit-app-region: no-drag;
+}
+
+.icon-gray {
+  filter: brightness(0.7);
+}
+
+.badge {
+  padding: 0.25rem 0.7rem;
+}

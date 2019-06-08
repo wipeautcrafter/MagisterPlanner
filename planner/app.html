@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>MagisterPlanner</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/master.js"></script>
+    <script src="js/app.js"></script>
   </head>
   <body>
+    <div class="loader"><div class="spinner">&#9881;</div></div>
+
     <div class="row">
       <div id="main" class="col">
         <nav class="navbar navbar-dark bg-dark">
-          <button class="btn"><i class="fas fa-times-circle"></i></button>
-          <a class="navbar-brand mx-auto" href="#"><i class="far fa-calendar-check"></i> MagisterPlanner <span class="badge badge-pill badge-danger">1</span></a>
+          <button class="btn close" onclick="window.close()">&times;</button>
+          <a class="navbar-brand mx-auto" href="#"> MagisterPlanner <span class="badge badge-pill badge-danger">1</span></a>
           <button class="btn expand-btn" data-toggle="collapse" data-target=".main-collapse"><i class="fas fa-lg fa-angle-up"></i></button>
         </nav>
         <div id="planner" class="main-collapse collapse">
@@ -25,13 +31,7 @@
                 <th>Flags</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <td>na</td>
-                <td>BDV</td>
-                <td><span class="badge badge-secondary">HW</span></td>
-              </tr>
+            <tbody id="schedule-body">
               <tr>
                 <th>2</th>
                 <td>eng</td>
