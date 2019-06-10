@@ -16,42 +16,38 @@
         <nav class="navbar navbar-dark bg-dark">
           <button class="btn close" onclick="window.close()">&times;</button>
           <a class="navbar-brand mx-auto" href="#"> MagisterPlanner <span class="badge badge-pill badge-danger">1</span></a>
-          <button class="btn expand-btn" data-toggle="collapse" data-target=".main-collapse"><i class="fas fa-lg fa-angle-up"></i></button>
+          <button class="btn expand-btn" data-toggle="collapse" data-target=".main-collapse"><div>&#9776;</div></button>
         </nav>
         <div id="planner" class="main-collapse collapse">
           Planner
         </div>
         <div id="schedule" class="main-collapse collapse show">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Subject</th>
-                <th>Teacher</th>
-                <th>Flags</th>
-              </tr>
-            </thead>
-            <tbody id="schedule-body">
-              <tr>
-                <th>2</th>
-                <td>eng</td>
-                <td>LNN</td>
-                <td><span class="badge badge-success">HW</span></td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>ne</td>
-                <td>PRH</td>
-                <td><span class="badge badge-warning">PW</span> <span class="badge badge-success">HW</span></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="container mt-3">
+            <ul class="scale-days pagination justify-content-center"></ul>
+          </div>
+          <div class="schedule-wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Hour</th>
+                  <th>Description</th>
+                  <th>Flags</th>
+                </tr>
+              </thead>
+              <tbody id="schedule-body">
+                <tr>
+                  <th>-</th>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="editor" class="col d-none d-lg-block">
+          Editor
         </div>
       </div>
-      <div id="editor" class="col d-none d-lg-block">
-        Editor
-      </div>
     </div>
-
   </body>
 </html>

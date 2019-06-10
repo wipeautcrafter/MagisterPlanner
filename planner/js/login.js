@@ -51,9 +51,17 @@ $(document).ready(function() {
         school: schools[0],
         username: $("#username").val(),
         password: $("#password").val()
-      }).then((m) => {
+      }).then(async (m) => {
 
         $("#school, #username, #password").addClass("is-valid");
+
+
+        if($("#remember").is(":checked")) {
+          localStorage.school = $("#school").val();
+          localStorage.username = $("#username").val();
+          localStorage.password = $("#password").val();
+        }
+
 
         const win = new BrowserWindow({
           height: 600,
@@ -65,12 +73,12 @@ $(document).ready(function() {
           }
         });
 
-        window.win = win;
-
         win.loadFile(path.join(__dirname, "app.html"));
 
+        win.blur();
+        window.focus();
+
         win.webContents.on("did-finish-load", () => {
-          alert("sending...");
           win.webContents.send("magister", m.school.name, m.token);
           getCurrentWindow().close();
         });
@@ -97,4 +105,12 @@ $(document).ready(function() {
       });
     }
   });
+
+  // autosignin
+  if(localStorage.username && localStorage.password && localStorage.school) {
+    $("#school").val(localStorage.school);
+    $("#username").val(localStorage.username);
+    $("#password").val(localStorage.password);
+    $("#login").trigger("click");
+  }
 });

@@ -2,12 +2,12 @@ body, html {
   overflow: hidden;
 }
 
-.expand-btn i {
-  transition: transform 0.3s ease-out;
+.expand-btn div {
+  transition: transform 0.3s ease-out, color 0.3s ease-in-out;
   -webkit-filter: blur(0);
 }
-.expand-btn.expand i {
-  transform: rotate(180deg);
+.expand-btn.expand div {
+  transform: rotate(270deg) scale(0.15, 1);
 }
 
 .loader {
@@ -34,4 +34,16 @@ body, html {
   width: auto;
 
   z-index: 99;
+}
+
+.schedule-wrapper {
+  overflow-y: auto;
+}
+.schedule-wrapper .popover-body {
+  max-height: 10em;
+  overflow: auto;
+}
+
+.hw-badge {
+  cursor: pointer;
 }
