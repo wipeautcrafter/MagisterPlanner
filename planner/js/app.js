@@ -116,8 +116,16 @@ const renderAppointments = async (day) => {
         content: i.content,
         html: true
       });
-      $(this).click(function() {
+      $(this).mousedown(async function(e) {
         $(".hw-badge").not(this).popover("hide");
+
+        if(e.which === 3) {
+          $(".hw-badge").popover("hide");
+          i.isDone = !i.isDone;
+          $(".loader").show();
+          await i.saveChanges();
+          renderDay(day);
+        }
       });
     });
   });
