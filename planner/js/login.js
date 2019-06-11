@@ -37,7 +37,7 @@ $(document).ready(function() {
   // signing in
   $("#login").click(async function() {
     $(".spinner").addClass("spin");
-    $("#login").attr("disabled", true);
+    $("#login, #remember").attr("disabled", true);
 
     const el = await (async function() {
       let ret = ["#school", "#username", "#password"];
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
         const win = new BrowserWindow({
           height: 600,
-          width: 450,
+          width: 475,
           resizable: false,
           frame: false,
           webPreferences: {
@@ -96,7 +96,7 @@ $(document).ready(function() {
     })();
 
     $(".spinner").removeClass("spin");
-    $("#login").attr("disabled", false);
+    $("#login, #remember").attr("disabled", false);
 
     if(el !== undefined) {
       el.forEach((i) => {

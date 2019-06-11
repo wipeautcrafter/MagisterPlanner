@@ -2,11 +2,11 @@ body, html {
   overflow: hidden;
 }
 
-.expand-btn div {
+.hamburger-btn div {
   transition: transform 0.3s ease-out, color 0.3s ease-in-out;
   -webkit-filter: blur(0);
 }
-.expand-btn.expand div {
+.hamburger-btn.expand div {
   transform: rotate(270deg) scale(0.15, 1);
 }
 

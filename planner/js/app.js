@@ -1,5 +1,5 @@
 const { default: magister, getSchools } = require("magister.js");
-const {BrowserWindow, getCurrentWindow} = require("electron").remote;
+const {BrowserWindow, getCurrentWindow, shell, Tray, Menu, screen} = require("electron").remote;
 const { addDays, getLastMonday, monthString, weekDay } = require("./js/helpers.js");
 const path = require("path");
 let session = null;
@@ -8,6 +8,52 @@ const {ipcRenderer} = require('electron');
 const {app} = require("electron").remote;
 
 let calendarWeek = getLastMonday();
+
+// HIDE TO TRAY
+
+let tray = null;
+
+window.toTray = () => {
+  if(tray !== null) {
+    tray.destroy();
+    tray = null;
+
+    getCurrentWindow().setPosition(
+      screen.getPrimaryDisplay().bounds.width - getCurrentWindow().getSize()[0],
+      screen.getPrimaryDisplay().bounds.height - getCurrentWindow().getSize()[1] - 25
+    );
+
+    getCurrentWindow().show();
+    getCurrentWindow().focus();
+
+    return;
+  }
+
+  tray = new Tray(path.join(__dirname, "img", "logo.png"));
+
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Show',
+      click () {
+        window.toTray();
+      }
+    },
+    {
+      label: 'Exit',
+      click () {
+        getCurrentWindow().close();
+      }
+    }
+  ]);
+
+  tray.setContextMenu(contextMenu);
+
+  tray.on("click", function() {
+    window.toTray();
+  });
+
+  getCurrentWindow().hide();
+};
 
 // CONNECTING
 const connect = async () => {
@@ -37,7 +83,7 @@ const connect = async () => {
   }
 
   $(".loader").hide();
-  renderDay(calendarWeek);
+  renderDay(new Date());
 };
 
 // UI FUNCTIONALITY RENDERING
@@ -58,7 +104,11 @@ const renderDay = (day) => {
     });
   });
 
-  $(`<li class="page-item"><a class="page-link day" href="#">&raquo;</a></li>`).appendTo(".scale-days").click(() => npWeek(1));
+  $(`<li class="page-item"><a class="page-link" href="#">&#8962;</a></li>`).appendTo(".scale-days").click(() => {
+    calendarWeek = getLastMonday();
+    renderDay(new Date());
+  });
+  $(`<li class="page-item"><a class="page-link" href="#">&raquo;</a></li>`).appendTo(".scale-days").click(() => npWeek(1));
 
   $(".scale-days > li").eq(weekDay(day) - weekDay(calendarWeek) + 1).addClass("active").children("a").html(day.getDate());
 
@@ -143,7 +193,12 @@ ipcRenderer.on("magister", async (event, name, token) => {
 $(document).ready(() => {
   if(sessionStorage.school !== undefined && sessionStorage.token !== undefined) connect();
 
-  $(".expand-btn").click(function() {
+  $(document).on('click', 'a[href^="http"]', function(event) {
+    event.preventDefault();
+    shell.openExternal(this.href);
+  });
+
+  $(".hamburger-btn").click(function() {
     $(this).toggleClass("expand");
   });
 });
