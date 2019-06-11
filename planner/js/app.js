@@ -18,11 +18,6 @@ window.toTray = () => {
     tray.destroy();
     tray = null;
 
-    getCurrentWindow().setPosition(
-      screen.getPrimaryDisplay().bounds.width - getCurrentWindow().getSize()[0],
-      screen.getPrimaryDisplay().bounds.height - getCurrentWindow().getSize()[1] - 25
-    );
-
     getCurrentWindow().show();
     getCurrentWindow().focus();
 
