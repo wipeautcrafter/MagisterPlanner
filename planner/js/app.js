@@ -126,8 +126,6 @@ const renderAppointments = async (day) => {
   appointments.forEach((i) => {
     if(i.isCancelled) return;
 
-    console.log(i);
-
     let badges = [];
     let fullTimeString = "Entire Day";
 
